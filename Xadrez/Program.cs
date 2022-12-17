@@ -15,14 +15,10 @@ namespace Xadrez
           
             tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(0,0));
             tab.colocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
-            tab.colocarPeca(new Rei(Cor.Preta, tab), new Posicao(0, 9));
+            tab.colocarPeca(new Rei(Cor.Preta, tab), new Posicao(0, 5));
+            tab.colocarPeca(new Rei(Cor.Branca, tab), new Posicao(0, 7));
 
             Tela.imprimirTabuleiro(tab);
-
-            Console.WriteLine();
-            Console.WriteLine();
-            PosicaoXadrez pos = new PosicaoXadrez('a',1);
-            Console.WriteLine(pos);
 
             Console.ReadLine();
             }catch(TabuleiroException e){
