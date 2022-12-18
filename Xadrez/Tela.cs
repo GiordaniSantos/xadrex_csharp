@@ -14,6 +14,10 @@ namespace Xadrez
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
             Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+            if (partida.xeque)
+            {
+                Console.WriteLine("XEQUE!");
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -33,22 +37,22 @@ namespace Xadrez
         public static void imprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
-            foreach(Peca x in conjunto)
+            foreach (Peca x in conjunto)
             {
-                Console.Write(x+" ");
+                Console.Write(x + " ");
             }
             Console.Write("]");
         }
 
         public static void imprimirTabuleiro(Tabuleiro tabuleiro)
         {
-            for (int x = 0; x<tabuleiro.linhas; x++)
+            for (int x = 0; x < tabuleiro.linhas; x++)
             {
                 Console.Write(8 - x + " ");
-                for (int i = 0; i<tabuleiro.colunas; i++)
-                {          
-                    imprimirPeca(tabuleiro.peca(x,i));
-                    
+                for (int i = 0; i < tabuleiro.colunas; i++)
+                {
+                    imprimirPeca(tabuleiro.peca(x, i));
+
                 }
                 Console.WriteLine();
             }
@@ -65,13 +69,13 @@ namespace Xadrez
                 Console.Write(8 - x + " ");
                 for (int i = 0; i < tabuleiro.colunas; i++)
                 {
-                    if (posicoesPossiveis[x,i])
+                    if (posicoesPossiveis[x, i])
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
                     else
                     {
-                        Console.BackgroundColor= fundoOriginal;
+                        Console.BackgroundColor = fundoOriginal;
                     }
                     imprimirPeca(tabuleiro.peca(x, i));
                     Console.BackgroundColor = fundoOriginal;
@@ -100,7 +104,7 @@ namespace Xadrez
             else
             {
 
-            
+
                 if (peca.cor == Cor.Branca)
                 {
                     Console.Write(peca);
